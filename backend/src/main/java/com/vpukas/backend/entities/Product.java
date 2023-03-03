@@ -1,31 +1,28 @@
 package com.vpukas.backend.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "products")
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
-public class Authority implements GrantedAuthority {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String authority;
+    private String name;
     @ManyToOne
     private User user;
 
-    public Authority(String authority, User user) {
-        this.authority = authority;
+    public Product(String name, User user) {
+        this.name = name;
         this.user = user;
     }
-
-    public Authority(String authority) {
-        this.authority = authority;
-    }
-
 }

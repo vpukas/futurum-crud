@@ -23,4 +23,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Optional<User> userOpt = userRepository.findByUsername(username);
         return userOpt.orElseThrow(() -> new UsernameNotFoundException("Invalid credentials"));
     }
+
+    public User getUserById(Long id) {
+        Optional<User> userOpt = userRepository.findById(id);
+        return userOpt.orElseThrow(() -> new UsernameNotFoundException("Invalid user"));
+    }
 }

@@ -1,21 +1,27 @@
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Login from './Login';
+import { BrowserRouter as Router } from "react-router-dom";
+import { useEffect } from 'react';
+import { useLocalState } from './util/useLocalStorage';
+import PrivateRoute from './PrivateRoute';
+import Homepage from './Homepage';
 
 function App() {
-  const reqBody = {
-    "username": "test",
-    "password": "test"
-  }
-  fetch('api/auth/login', {
-    "headers": {
-      "Content-Type": "application/json"
-    },
-    "method": "post",
-    "body": JSON.stringify(reqBody)
-  });
+
+
+
   return (
-    <div className="App">
-      
-    </div>
+    <Router>
+    <Routes >
+      <Route path="/" element={
+      <PrivateRoute>
+        <Homepage/>
+      </PrivateRoute>} />
+      <Route path='login' element={<Login/>}/>
+    </Routes>
+    </Router>
+
   );
 }
 
