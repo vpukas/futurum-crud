@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -16,6 +17,10 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductById(Long id) {
         Optional<Product> productOptional = productRepository.findById(id);
         return productOptional.orElseThrow(() -> new RuntimeException("Product does not exist"));
+    }
+
+    public Set<Product> findByUser(User user) {
+        return productRepository.findByUser(user);
     }
 
 }

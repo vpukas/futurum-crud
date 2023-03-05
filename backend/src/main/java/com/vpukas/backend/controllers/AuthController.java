@@ -38,7 +38,7 @@ public class AuthController {
                             HttpHeaders.AUTHORIZATION,
                             jwtTokenUtil.generateToken(user)
                     )
-                    .body(user);//TODO create dto for user
+                    .body(user.getId());//TODO create dto for user
         } catch (BadCredentialsException ex) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
