@@ -55,7 +55,7 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/register">
-                  Sign Up
+                  Sign Up(not available)
                 </a>
               </li>
             </ul>
