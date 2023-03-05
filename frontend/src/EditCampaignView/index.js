@@ -56,7 +56,6 @@ const EditCampaigneView = () => {
       event.stopPropagation();
     }
     setValidated(true);
-    window.location.href = `/campaigns`;
   };
 
   const PublicMethodsExample = () => {
@@ -79,16 +78,19 @@ const EditCampaigneView = () => {
   };
 
   function editCampaign() {
-    fetch("/api/campaigns/edit", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${jwt}`,
-      },
-      method: "post",
-      body: JSON.stringify(campaign),
-    }).then((response) => {
-      if (response.status === 200) return response.json();
-    });
+    if (validated) {
+      fetch("/api/campaigns/edit", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${jwt}`,
+        },
+        method: "post",
+        body: JSON.stringify(campaign),
+      }).then((response) => {
+        if (response.status === 200) return response.json();
+      });
+      window.location.href = `/campaigns`;
+    }
   }
 
   useEffect(() => {

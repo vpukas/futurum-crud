@@ -55,7 +55,6 @@ const CreateCampaigneView = () => {
       event.stopPropagation();
     }
     setValidated(true);
-    window.location.href = `/products/${productId}`;
   };
 
   const PublicMethodsExample = () => {
@@ -79,16 +78,19 @@ const CreateCampaigneView = () => {
   };
 
   function createCampaign() {
-    fetch("/api/campaigns", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${jwt}`,
-      },
-      method: "post",
-      body: JSON.stringify(campaign),
-    }).then((response) => {
-      if (response.status === 200) return response.json();
-    });
+    if (validated) {
+      fetch("/api/campaigns", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${jwt}`,
+        },
+        method: "post",
+        body: JSON.stringify(campaign),
+      }).then((response) => {
+        if (response.status === 200) return response.json();
+      });
+      window.location.href = `/products/${productId}`;
+    }
   }
 
   function updateCampaign(prop, value) {
