@@ -11,7 +11,7 @@
 <!-- * [License](#license) -->
 
 ## General Information
-- The project allows users to log in to the application where they can create campaigns for products they want to sell.- just the ones relevant to your project. -->
+- The project allows users to log in to the application where they can create campaigns for products they want to sell.
 
 
 ## Technologies Used
