@@ -1,14 +1,12 @@
 package com.vpukas.backend.dtos;
 
 import com.vpukas.backend.entities.Keyword;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Set;
 
 @Setter
 @Getter

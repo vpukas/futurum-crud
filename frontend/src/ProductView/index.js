@@ -99,6 +99,8 @@ const ProductView = () => {
                 <th scope="col">Campaign Fund</th>
                 <th scope="col">Campaign Status</th>
                 <th scope="col">Campaign Radius</th>
+                <th scope="col">Campaign Bid</th>
+                <th scope="col">Campaign Town</th>
               </tr>
             </thead>
             <tbody>
@@ -114,6 +116,8 @@ const ProductView = () => {
                   )}
                 </td>
                 <td>{campaigns.radius}</td>
+                <td>{campaigns.bid}</td>
+                <td>{campaigns.town}</td>
               </tr>
             </tbody>
           </table>

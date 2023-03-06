@@ -16,6 +16,9 @@ public class KeywordServiceImpl implements KeywordService{
     @Override
     @Transactional
     public List<Keyword> saveKeywords(List<Keyword> keywords, Campaign campaign) {
+        if(keywords == null) {
+            throw new RuntimeException("Provide keywords please");
+        }
         return keywordRepository.saveAll(keywords);
     }
      @Override

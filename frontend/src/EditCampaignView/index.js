@@ -50,12 +50,7 @@ const EditCampaigneView = () => {
     setSelected(s);
   }
   const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    setValidated(true);
+    alert("checked finished");
   };
 
   const PublicMethodsExample = () => {
@@ -68,7 +63,7 @@ const EditCampaigneView = () => {
           labelKey="name"
           multiple
           options={myKeywords}
-          placeholder="Choose a state..."
+          placeholder="Choose..."
           ref={ref}
           selected={selected}
           onChange={handleSelect}
@@ -77,8 +72,13 @@ const EditCampaigneView = () => {
     );
   };
 
-  function editCampaign() {
-    if (validated) {
+  function editCampaign(event) {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      setValidated(true);
       fetch("/api/campaigns/edit", {
         headers: {
           "Content-Type": "application/json",
@@ -86,10 +86,11 @@ const EditCampaigneView = () => {
         },
         method: "post",
         body: JSON.stringify(campaign),
-      }).then((response) => {
-        if (response.status === 200) return response.json();
-      });
-      window.location.href = `/campaigns`;
+      })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+        })
+        .then((window.location.href = `/campaigns`));
     }
   }
 
@@ -118,7 +119,7 @@ const EditCampaigneView = () => {
     <div>
       <Navbar />
       <Container>
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form noValidate validated={validated} onSubmit={editCampaign}>
           <Row className="justify-content-center mt-5">
             <Col md="8" lg="6">
               <Form.Group className="mb-3" controlId="name">
@@ -225,12 +226,7 @@ const EditCampaigneView = () => {
               lg="6"
               className="mt-2 d-flex flex-column gap-5 flex-md-row justify-content-md-between"
             >
-              <Button
-                id="submit"
-                type="submit"
-                size="lg"
-                onClick={() => editCampaign()}
-              >
+              <Button id="submit" type="submit" size="lg">
                 Submit
               </Button>
             </Col>

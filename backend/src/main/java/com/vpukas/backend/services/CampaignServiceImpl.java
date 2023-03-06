@@ -2,12 +2,10 @@ package com.vpukas.backend.services;
 
 import com.vpukas.backend.dtos.CampaignDTO;
 import com.vpukas.backend.entities.Campaign;
-import com.vpukas.backend.entities.Keyword;
 import com.vpukas.backend.entities.Product;
 import com.vpukas.backend.entities.User;
 import com.vpukas.backend.repositories.CampaignRepository;
 import lombok.AllArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,6 +56,8 @@ public class CampaignServiceImpl implements CampaignService{
         campaign1.setName(campaignDTO.getName());
         campaign1.setRadius(campaignDTO.getRadius());
         campaign1.setFund(campaignDTO.getFund());
+        campaign1.setBid(campaignDTO.getBid());
+        campaign1.setTown(campaignDTO.getTown());
         return campaignRepository.save(campaign1);
     }
     @Override

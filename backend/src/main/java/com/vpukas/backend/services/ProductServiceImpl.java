@@ -4,7 +4,6 @@ import com.vpukas.backend.entities.Product;
 import com.vpukas.backend.entities.User;
 import com.vpukas.backend.repositories.ProductRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

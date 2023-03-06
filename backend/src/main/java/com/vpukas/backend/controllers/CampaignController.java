@@ -2,13 +2,11 @@ package com.vpukas.backend.controllers;
 
 import com.vpukas.backend.dtos.CampaignDTO;
 import com.vpukas.backend.entities.Campaign;
-import com.vpukas.backend.entities.Keyword;
 import com.vpukas.backend.entities.User;
 import com.vpukas.backend.services.CampaignServiceImpl;
 import com.vpukas.backend.services.KeywordService;
 import com.vpukas.backend.services.UserDataService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +26,9 @@ public class CampaignController {
     public ResponseEntity<CampaignDTO> save(
             @RequestBody CampaignDTO campaignDTO, @AuthenticationPrincipal User user
             ) {
+        if(campaignDTO.getKeyword() == null) {
+            return ResponseEntity.badRequest().body(new CampaignDTO());
+        }
         campaignDTO.setUserId(user.getId());
         Campaign campaign = campaignService.save(campaignDTO);
         CampaignDTO campaignDTO1 = new CampaignDTO(campaign.getId(),
@@ -58,7 +59,10 @@ public class CampaignController {
     }
 
     @PostMapping("edit")
-    public ResponseEntity<?> editCampaign(@RequestBody CampaignDTO campaignDTO) {
+    public ResponseEntity<Campaign> editCampaign(@RequestBody CampaignDTO campaignDTO) {
+        if(campaignDTO.getKeyword() == null) {
+            return ResponseEntity.badRequest().body(new Campaign());
+        }
         Campaign campaign = campaignService.editCampaign(campaignDTO);
         keywordService.changeKeywordsParams(campaignDTO.getKeyword(), campaign);
         keywordService.deleteKeywords(campaign);
