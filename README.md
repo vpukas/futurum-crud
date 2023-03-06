@@ -1,4 +1,4 @@
-# Rfuturum-crud
+# Futurum-crud
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -32,11 +32,11 @@ List the ready features here:
 - Login in app
 
 ## Screenshots
-![products]![image](https://user-images.githubusercontent.com/92274707/222992315-48f1b204-7c49-4f6f-9e22-6798be462749.png)
-![login]![image](https://user-images.githubusercontent.com/92274707/222992343-4fadc4f8-c658-4df2-8716-c0909693ed88.png)
-![create]![image](https://user-images.githubusercontent.com/92274707/222992388-d496093f-3f7e-444c-a3a8-0b15d0e6c14d.png)
-![edit]![image](https://user-images.githubusercontent.com/92274707/222998951-3325b93a-83ac-42f9-a080-cb90894f880c.png)
-![list]![image](https://user-images.githubusercontent.com/92274707/222999000-a2c4d49e-d742-4c59-8fe8-c96e520a2150.png)
+![image](https://user-images.githubusercontent.com/92274707/222992315-48f1b204-7c49-4f6f-9e22-6798be462749.png)
+![image](https://user-images.githubusercontent.com/92274707/222992343-4fadc4f8-c658-4df2-8716-c0909693ed88.png)
+![image](https://user-images.githubusercontent.com/92274707/222992388-d496093f-3f7e-444c-a3a8-0b15d0e6c14d.png)
+![image](https://user-images.githubusercontent.com/92274707/222998951-3325b93a-83ac-42f9-a080-cb90894f880c.png)
+![image](https://user-images.githubusercontent.com/92274707/222999000-a2c4d49e-d742-4c59-8fe8-c96e520a2150.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 ## Usage
